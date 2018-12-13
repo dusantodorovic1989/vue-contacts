@@ -45,8 +45,6 @@ export default {
             }catch(errors){
                 context.commit('SET_ERRORS',errors)
             }
-            
-            
         }
     },
     getters:{
