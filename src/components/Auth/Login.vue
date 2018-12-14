@@ -1,7 +1,7 @@
 <template>
     <form
      class="form-signin"
-     @submit.prevent="login"
+     @submit.prevent="submitForm"
      >
 
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
     name:'login',
     data(){
@@ -41,6 +42,12 @@ export default {
     methods:{
         login(){
             //console.log({email: this.email,password:this.password});
+
+
+        },
+        ...mapActions(['login']),
+        submitForm(){
+            this.login({email: this.email, password: this.password, nextRouteName: 'home'});
         }
     }
 

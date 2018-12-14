@@ -14,7 +14,8 @@ export default {
     },
     created(){
         this.getContacts()
-    }
+    },
+    
 }
 </script>
 

@@ -4,6 +4,7 @@
      <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href = "#">Contacts</a>
+        <a class="nav-link" @click = "onLogoutClick" v-if="user">Logout</a>
         </nav>
       </header>
       <main class="container">
@@ -18,9 +19,21 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: 'app',
+  computed:{
+      ...mapGetters({
+          user:'getUser'
+      })
+  },
+  methods:{
+      ...mapActions(['logout']),
+      onLogoutClick(){
+          this.logout();
+      }
+  }
  
 }
 </script>
@@ -46,5 +59,9 @@ export default {
 }
 main {
     margin-top: 100px;
+
+}
+.nav-link{
+    color:#fff !important;
 }
 </style>
